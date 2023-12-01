@@ -1,3 +1,9 @@
 * Advent of Code 2023 in C
   Using [[https://github.com/tsoding/nobuild][tsoding/nobuild]] for building.
   My goal for this AOC is to learn cross platform building in C.
+
+** Building
+   #+begin_src bash
+   cc -o nob nob.c  # ONLY ONCE
+   ./nob
+   #+end_src
