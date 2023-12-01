@@ -1,0 +1,5 @@
+gcc
+#c
+#h
+-Wall
+-Wextra
