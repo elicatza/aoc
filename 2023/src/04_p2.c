@@ -24,10 +24,8 @@ int parse_card(char *cstr)
     for (ptr = cstr; *ptr != ':'; ++ptr);
     ++ptr;
 
-    int lhs[BUFSZ] = { 0 };
-    size_t lhs_len = 0;
-    int rhs[BUFSZ] = { 0 };
-    size_t rhs_len = 0;
+    int lhs[BUFSZ] = { 0 }, rhs[BUFSZ] = { 0 };
+    size_t lhs_len = 0, rhs_len = 0;
 
     bool islhs = true;
     while (*ptr != '\0' && *ptr != '\n') {
