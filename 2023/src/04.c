@@ -6,6 +6,8 @@
 #define NOB_IMPLEMENTATION
 #include "./nob.h"
 
+#include "core.h"
+
 
 #define BUFSZ 0xff
 
@@ -85,22 +87,6 @@ int main(void)
 }
 
 #else  // TEST
-#define ASSERT(statement) test_assert(statement, #statement)
-
-static int passed = 0;
-static int tests = 0;
-
-void test_assert(bool statement, char *msg)
-{
-    ++tests;
-
-    if (statement) {
-        printf("\x1b[32mPASSED:\x1b[0m %s\n", msg);
-        ++passed;
-    } else {
-        printf("\x1b[31mFAILED:\x1b[0m %s\n", msg);
-    }
-}
 
 void test_cards()
 {

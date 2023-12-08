@@ -47,7 +47,7 @@ int is_valid_game(char *cstr)
     char *ptr = cstr;
     ptr += 5;
     char *tmp;
-    int game_idx = strtoul(ptr, &tmp, 10);
+    strtoul(ptr, &tmp, 10);
     ptr = tmp + 2;
 
     unsigned int max[3] = { 0 };
@@ -57,7 +57,7 @@ int is_valid_game(char *cstr)
         assert(ptr != tmp && "Invalid cube!");
         ptr = tmp + 2;
 
-        if (max[cube.color] < cube.amount) {
+        if (max[cube.color] < (unsigned int) cube.amount) {
             max[cube.color] = cube.amount;
         }
     }
@@ -101,23 +101,8 @@ int main(void)
 }
 
 #else  // TEST
-#define ASSERT(statement) test_assert(statement, #statement)
 
-static int passed = 0;
-static int tests = 0;
-
-void test_assert(bool statement, char *msg)
-{
-    ++tests;
-
-    if (statement) {
-        printf("\x1b[32mPASSED:\x1b[0m %s\n", msg);
-        ++passed;
-    } else {
-        printf("\x1b[31mFAILED:\x1b[0m %s\n", msg);
-    }
-}
-
+#include "core.h"
 void test_games()
 {
     ASSERT(is_valid_game("Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green") == 48);

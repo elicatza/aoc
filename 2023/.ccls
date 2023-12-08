@@ -3,3 +3,4 @@ gcc
 #h
 -Wall
 -Wextra
+-lm

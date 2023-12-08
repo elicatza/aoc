@@ -52,6 +52,7 @@ int main(int argc, char **argv)
     if (!nob_mkdir_if_not_exists("target")) return 1;
 
     char *program = nob_shift_args(&argc, &argv);
+    (void) program;
 
     bool flag_test = false;
     if (argc > 0) {
